@@ -1,0 +1,50 @@
+create table employee
+( emp_id int primary key,
+ename varchar(45),
+esal varchar(45),
+hiredate varchar(45),
+age int,
+email varchar(45),
+dept_id int,
+foreign key(dept_id) references department(dept_id)
+);
+create table skill
+( 
+s_id int primary key,
+skill1 varchar(45),
+skill2 varchar(45),
+emp_id int,
+foreign key(emp_id)references employee(emp_id)
+);
+create table address
+( 
+address_id int primary key,
+street varchar(45),
+city varchar(45),
+state varchar(45),
+country varchar(45),
+pincode int,
+emp_id int,
+foreign key(emp_id)references employee(emp_id)
+);
+create table department
+(
+dept_id int primary key,
+d_name varchar(45),
+location varchar(45)
+);
+ CREATE TABLE address (
+  address_id int NOT NULL,
+  street varchar(45) DEFAULT NULL,
+  city_name varchar(45) ,
+  emp_id int ,
+  PRIMARY KEY (`address_id`),
+   FOREIGN KEY (city_name) REFERENCES citis (city_name),
+   FOREIGN KEY (emp_id) REFERENCES employee (emp_id)
+);
+ CREATE TABLE citis (
+  city_name varchar(45) NOT NULL,
+  state varchar(45) DEFAULT NULL,
+  pincode int DEFAULT NULL,
+  PRIMARY KEY (city_name)
+);
